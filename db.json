@@ -109,6 +109,42 @@
       "year": 2014,
       "review": "A visually stunning space epic about humanity searching for a new home.",
       "rating": 9
+    },
+    {
+      "id": "1",
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "director": "Christopher Nolan",
+      "year": 2014,
+      "review": "A visually stunning space epic about humanity searching for a new home.",
+      "rating": 9
+    },
+    {
+      "id": "1",
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "director": "Christopher Nolan",
+      "year": 2014,
+      "review": "A visually stunning space epic about humanity searching for a new home.",
+      "rating": 9
+    },
+    {
+      "id": "1",
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "director": "Christopher Nolan",
+      "year": 2014,
+      "review": "A visually stunning space epic about humanity searching for a new home.",
+      "rating": 9
+    },
+    {
+      "id": "1",
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "director": "Christopher Nolan",
+      "year": 2014,
+      "review": "A visually stunning space epic about humanity searching for a new home.",
+      "rating": 9
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

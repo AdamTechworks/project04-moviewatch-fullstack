@@ -6,6 +6,7 @@ function Movies() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     async function loadMovies() {
@@ -28,10 +29,10 @@ function Movies() {
   async function handleAddToWatchlist(movie) {
     try {
       await addToWatchlist(movie);
-      alert(`${movie.title} added to watchlist`);
+      setMessage(`${movie.title} added to watchlist`);
     } catch (err) {
       console.error(err);
-      alert("Could not add movie to watchlist.");
+      setMessage("Could not add movie to watchlist.");
     }
   }
 
@@ -41,7 +42,8 @@ function Movies() {
       <p>Explore movies and add them to your watchlist.</p>
       {loading && <p>Loading movies...</p>}
       {error && <p>{error}</p>}
-
+      
+      {message && <p className="success-message">{message}</p>}
      {!loading && !error && (
         <MovieList movies={movies} onAddToWatchlist={handleAddToWatchlist} />
       )}
