@@ -5,6 +5,7 @@ import { getMovies, addToWatchlist } from "../services/api";
 function Movies() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadMovies() {
@@ -14,8 +15,11 @@ function Movies() {
       } catch (err) {
         setError("Could not load movies.");
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     }
+    
 
     loadMovies();
   }, []);
@@ -35,10 +39,12 @@ function Movies() {
     <main>
       <h1>Browse Movies</h1>
       <p>Explore movies and add them to your watchlist.</p>
-
+      {loading && <p>Loading movies...</p>}
       {error && <p>{error}</p>}
 
-      <MovieList movies={movies} onAddToWatchlist={handleAddToWatchlist} />
+     {!loading && !error && (
+        <MovieList movies={movies} onAddToWatchlist={handleAddToWatchlist} />
+      )}
     </main>
   );
 }

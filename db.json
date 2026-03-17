@@ -73,6 +73,42 @@
       "year": 2014,
       "review": "A visually stunning space epic about humanity searching for a new home.",
       "rating": 9
+    },
+    {
+      "id": "1",
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "director": "Christopher Nolan",
+      "year": 2014,
+      "review": "A visually stunning space epic about humanity searching for a new home.",
+      "rating": 9
+    },
+    {
+      "id": "3",
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "director": "Christopher Nolan",
+      "year": 2008,
+      "review": "Batman faces the Joker in one of the greatest superhero films ever made.",
+      "rating": 9
+    },
+    {
+      "id": "2",
+      "title": "Inception",
+      "genre": "Sci-Fi / Thriller",
+      "director": "Christopher Nolan",
+      "year": 2010,
+      "review": "A mind-bending story about dreams within dreams.",
+      "rating": 8
+    },
+    {
+      "id": "1",
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "director": "Christopher Nolan",
+      "year": 2014,
+      "review": "A visually stunning space epic about humanity searching for a new home.",
+      "rating": 9
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
