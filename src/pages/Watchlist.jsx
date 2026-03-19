@@ -57,7 +57,7 @@ function Watchlist() {
       {watchlist.length === 0 ? (
         <p>No movies in your watchlist yet.</p>
       ) : (
-        <div className="movie-list">
+        <div className="watchlist-grid">
           {watchlist.map((movie) => (
             <MovieCard
               key={movie.id}
