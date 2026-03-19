@@ -33,7 +33,7 @@ export async function addToWatchlist(movie) {
 }
 
 export async function deleteFromWatchlist(id) {
-  const response = await fetch(`http://localhost:3000/watchlist/${id}`, {
+  const response = await fetch(`${API_URL}/watchlist/${id}`, {
     method: "DELETE"
   });
 

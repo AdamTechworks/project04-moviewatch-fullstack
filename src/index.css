@@ -74,3 +74,24 @@ button:hover {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+
+/*carousel*/
+/* ===== Movie Carousel ===== */
+
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.movie-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  width: 100%;
+}
+
+.card {
+  min-width: 280px;
+  flex: 0 0 auto;
+}
