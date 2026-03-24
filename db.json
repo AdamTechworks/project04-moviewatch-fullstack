@@ -345,15 +345,6 @@
       "rating": 8
     },
     {
-      "id": "1",
-      "title": "Interstellar",
-      "genre": "Sci-Fi",
-      "director": "Christopher Nolan",
-      "year": 2014,
-      "review": "A visually stunning space epic about humanity searching for a new home. As Earth becomes uninhabitable, a team travels through a wormhole to find hope. The film blends science, emotion, and breathtaking visuals.",
-      "rating": 9
-    },
-    {
       "id": "8",
       "title": "John Wick",
       "genre": "Action",
@@ -453,48 +444,12 @@
       "rating": 7
     },
     {
-      "id": "3",
-      "title": "Dune",
-      "genre": "Sci-Fi",
-      "director": "Denis Villeneuve",
-      "year": 2021,
-      "review": "A visually stunning adaptation of a desert planet epic. Paul Atreides must navigate politics, prophecy, and survival. The film delivers massive scale and immersive world-building.",
-      "rating": 8
-    },
-    {
-      "id": "4",
-      "title": "The Matrix",
-      "genre": "Sci-Fi",
-      "director": "Wachowski Sisters",
-      "year": 1999,
-      "review": "A hacker discovers that reality is a simulation controlled by machines. He joins a rebellion to free humanity from illusion. The film redefined action and sci-fi storytelling.",
-      "rating": 10
-    },
-    {
       "id": "2",
       "title": "Inception",
       "genre": "Sci-Fi",
       "director": "Christopher Nolan",
       "year": 2010,
       "review": "A mind-bending story about dreams within dreams. A skilled thief enters people's subconscious to steal secrets. As reality blurs, the mission becomes increasingly dangerous.",
-      "rating": 8
-    },
-    {
-      "id": "5",
-      "title": "Blade Runner 2049",
-      "genre": "Sci-Fi",
-      "director": "Denis Villeneuve",
-      "year": 2017,
-      "review": "A futuristic detective uncovers a mystery that could change society. As he digs deeper, he questions identity and memory. The film is slow, atmospheric, and visually breathtaking.",
-      "rating": 9
-    },
-    {
-      "id": "6",
-      "title": "Avatar",
-      "genre": "Sci-Fi",
-      "director": "James Cameron",
-      "year": 2009,
-      "review": "A soldier enters a breathtaking alien world through a remote body. As he connects with the planet’s people, his loyalty is tested. The film is known for its groundbreaking visuals.",
       "rating": 8
     }
   ],

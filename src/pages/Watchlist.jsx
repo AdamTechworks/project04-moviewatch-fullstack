@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
 import { getWatchlist, deleteFromWatchlist } from "../services/api";
 import SearchBar from "../components/SearchBar";
+import EmptyState from "../components/EmptyState";
 
 
 function Watchlist() {
@@ -85,10 +86,13 @@ const groupedWatchlist = genres.map((genre) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search watchlist..."
+        suggestions={filteredWatchlist}
   />
 
+
       {watchlist.length === 0 ? (
-        <p>No movies in your watchlist yet.</p>
+        <EmptyState message="No movies in your watchlist yet." />
+
         ) : (
        groupedWatchlist.map(({ genre, chunks }) => {
         if (chunks.length === 0) return null;

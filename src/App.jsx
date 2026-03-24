@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Watchlist from './pages/Watchlist';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/watchlist" element={<Watchlist />} />
         <Route path="*" element={<h1>404 Page Not Found</h1>} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

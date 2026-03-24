@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
 import { getMovies, addToWatchlist, getWatchlist } from "../services/api";
 import SearchBar from "../components/SearchBar";
+import LoadingMessage from "../components/LoadingMessage";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -64,36 +65,17 @@ function Movies() {
     <main>
       <h1>Browse Movies</h1>
       <p>Explore movies and add them to your watchlist.</p>
-      {loading && <p>Loading movies...</p>}
+
+      {loading && <LoadingMessage text="Loading movies..." />}
+
       {error && <p>{error}</p>}
 
       <SearchBar
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search movies..."
+        suggestions={filteredMovies}
    />
-
-      {searchTerm &&
-      filteredMovies.some((movie) =>
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-        ) && (
-        <div className="autocomplete">
-          {filteredMovies
-            .filter((movie) =>
-              movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .slice(0, 5)
-            .map((movie) => (
-              <div
-                key={movie.id}
-                className="autocomplete-item"
-                onClick={() => setSearchTerm(movie.title)}
-              >
-                {movie.title} ({movie.genre})
-              </div>
-            ))}
-      </div>
-  )}
       
      {!loading && !error && (
          <>
