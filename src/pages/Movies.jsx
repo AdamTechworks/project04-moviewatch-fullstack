@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
 import { getMovies, addToWatchlist, getWatchlist } from "../services/api";
+import SearchBar from "../components/SearchBar";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -66,13 +67,11 @@ function Movies() {
       {loading && <p>Loading movies...</p>}
       {error && <p>{error}</p>}
 
-      <input
-        type="text"
-        placeholder="Search movies..."
+      <SearchBar
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-bar"
-      />
+        placeholder="Search movies..."
+   />
 
       {searchTerm &&
       filteredMovies.some((movie) =>

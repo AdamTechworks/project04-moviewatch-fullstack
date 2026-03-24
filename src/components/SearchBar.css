@@ -1,0 +1,40 @@
+/* Search Bar mvoies & watchlist */
+
+  .search-bar {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  margin: 1rem auto 2rem auto; 
+  padding: 0.8rem 1rem;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  background-color: #1f2937;
+  color: white;
+  font-size: 1.2rem;
+}
+
+  .search-bar::placeholder {
+    color: #9ca3af;
+  }
+
+
+/*auto complete search suggestions*/
+
+.autocomplete {
+  max-width: 500px;
+  margin: -1rem auto 1rem auto;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.autocomplete-item {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+.autocomplete-item:hover {
+  background-color: #374151;
+}

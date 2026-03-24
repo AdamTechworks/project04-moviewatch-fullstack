@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
 import { getWatchlist, deleteFromWatchlist } from "../services/api";
+import SearchBar from "../components/SearchBar";
 
 
 function Watchlist() {
@@ -80,13 +81,11 @@ const groupedWatchlist = genres.map((genre) => {
     <main>
       <h1>My Watchlist</h1>
 
-      <input
-        type="text"
-        placeholder="Search watchlist..."
+      <SearchBar
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-bar"
-      />
+        placeholder="Search watchlist..."
+  />
 
       {watchlist.length === 0 ? (
         <p>No movies in your watchlist yet.</p>
