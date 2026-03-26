@@ -1,31 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MovieList from "../components/MovieList";
-import { getWatchlist, deleteFromWatchlist } from "../services/api";
+import { deleteFromWatchlist } from "../services/api";
 import SearchBar from "../components/SearchBar";
 import EmptyState from "../components/EmptyState";
 
 
-function Watchlist() {
-  const [watchlist, setWatchlist] = useState([]);
+function Watchlist({ watchlist, setWatchlist, watchlistError }) {
   const [message, setMessage] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedMovieId, setSelectedMovieId] = useState(null);
 
-
-  useEffect(() => {
-    async function loadWatchlist() {
-      try {
-        const data = await getWatchlist();
-        setWatchlist(data);
-      } catch (err) {
-        console.error("Failed to load watchlist", err);
-      }
-    }
-  
-  
-        loadWatchlist();
-      },
-    []);
 
   async function handleRemove(movieId) {
   try {
@@ -80,11 +64,15 @@ const groupedWatchlist = genres.map((genre) => {
 
   return (
     <main>
-      <h1>My Watchlist</h1>
+      <h1>Watchlist</h1>
+      <p>Manage the movies you want to watch.</p>
+
+        {watchlistError && <p>{watchlistError}</p>}
 
       <SearchBar
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        onSelect={setSearchTerm}
         placeholder="Search watchlist..."
         suggestions={filteredWatchlist}
   />

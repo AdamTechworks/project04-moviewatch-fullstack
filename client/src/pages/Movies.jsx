@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
-import { getMovies, addToWatchlist, getWatchlist } from "../services/api";
+import { getMovies, addToWatchlist } from '../services/api';
 import SearchBar from "../components/SearchBar";
 import LoadingMessage from "../components/LoadingMessage";
 
-function Movies() {
+function Movies({ watchlist, setWatchlist }) {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -32,11 +32,9 @@ function Movies() {
 
     async function handleAddToWatchlist(movie) {
     try {
-      const watchlist = await getWatchlist();
-
       const alreadyAdded = watchlist.some(
-        (item) => item.title === movie.title
-      );
+      (item) => item.title === movie.title
+     );
 
       setSelectedMovieId(movie.id);
 
@@ -45,8 +43,10 @@ function Movies() {
         return;
       }
 
-      await addToWatchlist(movie);
-      setMessage(`${movie.title} added to watchlist`);
+      const newMovie = await addToWatchlist(movie);
+      setWatchlist((prev) => [...prev, newMovie]);
+      setMessage(`${movie.title} added to watchlist`); 
+
     } catch (err) {
       console.error(err);
       setSelectedMovieId(movie.id);
@@ -73,6 +73,7 @@ function Movies() {
       <SearchBar
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        onSelect={setSearchTerm}
         placeholder="Search movies..."
         suggestions={filteredMovies}
    />
