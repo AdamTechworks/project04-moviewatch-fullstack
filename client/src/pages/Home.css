@@ -1,11 +1,67 @@
 /* HERO BANNER */
 
 .hero {
-  padding: 3rem 2rem;
   background: linear-gradient(to right, #111827, #1f2937);
-  border-radius: 12px;
-  margin-bottom: 2rem;
+  border-radius: 16px;
+  margin-bottom: 6rem;
+  position: relative;
+  overflow: visible;
   animation: fadeSlide 0.8s ease;
+}
+
+.hero-content {
+  display: grid;
+  height: 600px;
+  grid-template-columns: 2.5fr 3fr;
+  gap: 2rem;
+  padding: 1.5rem;;
+  min-height: 320px
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  color: white;
+  padding-left: 190px;
+}
+
+.hero-text p {
+  max-width: 650px;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  padding-left: 190px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-left: 250px;
+}
+
+.hero-image-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  padding-left: 0.5rem;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 14px;;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease;
+  transform: scale(1.11);
+}
+
+.hero-image:hover {
+  transform: scale(1.15);
 }
 
 @keyframes fadeSlide {
@@ -19,20 +75,29 @@
   }
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-.hero p {
-  max-width: 600px;
-  color: #d1d5db;
-  margin-bottom: 1.5rem;
-}
+   .hero-image-wrapper {
+    margin-right: 0;
+    justify-content: center;
+  }
 
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
+  .hero-image {
+    transform: none;
+  }
+
+  .hero-buttons {
+    justify-content: center;;
+  }
+
+  .hero-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* HOME ROWS */
@@ -84,17 +149,29 @@
 
 .recommended-card {
   background: linear-gradient(180deg, #1b2533 0%, #111827 100%);
-  border: 1px solid #2b3648;
   border-radius: 12px;
   padding: 1rem;
+  transition: transform 0.3s ease;
 }
 
 .recommended-card h3 {
   margin-bottom: 0.75rem;
-  color: white;
+  transform: scale(1.03);
 }
 
 .recommended-card p {
   color: #d1d5db;
   margin-bottom: 0.5rem;
 }
+
+ .recommended-poster {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    max-height: 520px;
+    object-fit: fill;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+ }

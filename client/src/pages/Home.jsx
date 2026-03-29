@@ -66,7 +66,9 @@ function Home() {
     <main>
       {/* 🎬 HERO BANNER */}
       {featuredMovie && (
-        <section className="hero">
+          <section key={featuredMovie.id} className="hero">
+          <div className="hero-content">
+          <div className="hero-text">
           <h1>{featuredMovie.title}</h1>
           <p>{featuredMovie.review}</p>
 
@@ -79,10 +81,21 @@ function Home() {
               My Watchlist
             </button>
           </div>
-        </section>
+        </div>
+
+        <div className="hero-image-wrapper">
+          <img
+            src={featuredMovie.poster}
+            alt={featuredMovie.title}
+            className="hero-image"
+            onClick={() => navigate("/movies")}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+      </div>
+      </section>
       )}
 
-      {/* 🔥 TRENDING */}
       {!loading && (
         <section className="home-row">
           <h2>Trending Now</h2>
@@ -90,7 +103,6 @@ function Home() {
         </section>
       )}
 
-      {/* ⭐ Recommended for you */}
       {!loading && (
        <section className="home-row">
        <h2>Recommended for You</h2>
@@ -98,17 +110,22 @@ function Home() {
       <div className="recommended-row">
         {recommendedMovies.map((movie) => (
           <div key={movie.id} className="recommended-card">
+          <img
+            src={movie.poster}
+            alt={movie.title}
+            className="recommended-poster"
+            onClick={() => navigate("/movies")}
+          />
             <h3>{movie.title}</h3>
             <p><strong>Genre:</strong> {movie.genre}</p>
             <p><strong>Director:</strong> {movie.director}</p>
             <p><strong>Rating:</strong> {movie.rating}/10</p>
       </div>
-    ))}
-  </div>
-</section>
-)}
+      ))}
+    </div>
+  </section>
+  )}
 
-      {/* CTA */}
       <section className="home-cta">
         <h2>Start building your watchlist</h2>
         <p>Browse movies and save your favorites.</p>

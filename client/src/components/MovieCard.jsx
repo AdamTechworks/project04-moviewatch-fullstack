@@ -1,11 +1,31 @@
+import "./MovieCard.css";
+import { useNavigate } from "react-router-dom";
+
 function MovieCard({ movie, onAddToWatchlist, onRemove, message }) {
+
+  const navigate = useNavigate();
+
   return (
     <div className="card">
 
-        <div className="movie-poster">
-        <div className="movie-poster-overlay">
-          <span className="movie-poster-title">{movie.title}</span>
-        </div>
+         <div
+            className="movie-poster"
+            onClick={() =>
+              onAddToWatchlist
+                ? onAddToWatchlist(movie)
+                : navigate("/movies")
+              }
+              style={{
+                backgroundImage: `url(${movie.poster})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                cursor: "pointer"
+              }}
+            >
+              
+          <div className="movie-poster-overlay">
+            <span className="movie-poster-title">{movie.title}</span>
+          </div>
         </div>
 
         {message && <p className="success-message">{message}</p>}
