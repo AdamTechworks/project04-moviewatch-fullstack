@@ -1,21 +1,19 @@
-<h2>Author</h2>
+<h2>React Application</h2>
 
 <p>Built by Adam Ellison.</p>
 
 <p>
-  I wanted to create something that felt familiar and intuitive, similar to streaming
-  platforms like Netflix, where users can browse movies by genre and build a personal
+  I wanted to create something that felt familiar and intuitive, where users can browse movies by genre and build a personal
   watchlist. A big focus was improving the user experience with features like horizontal
   carousels, search with autocomplete, and instant UI updates when adding or removing movies.
 </p>
 
 <hr />
 
-<h1>Movie Watchlist App</h1>
+<h1>WatchVerse App</h1>
 
 <p>
-  A React application that allows users to browse movies by genre, search with autocomplete,
-  and save movies to a personal watchlist. The project uses a separate
+  This React application that allows the project to use a seperate
   <strong>json-server</strong> backend and follows a client/server folder structure.
 </p>
 
@@ -62,14 +60,30 @@
       components/
       pages/
       services/
+    .env
     package.json
     vite.config.js
-    .env
   server/
     db.json
-    server.js
     package.json
+    server.js
+/.gitingore
 </code></pre>
+
+<hr />
+
+<h2>Wireframes</h2>
+
+<p>Initial design concepts for the application layout:</p>
+
+<h3>Home Page</h3>
+<img src="client/public/images/home3.png" width="400" />
+
+<h3>Movies Page</h3>
+<img src="client/public/images/browse3.png" width="400" />
+
+<h3>Watchlist Page</h3>
+<img src="client/public/images/watchlist3.png" width="400" />
 
 <hr />
 
@@ -86,7 +100,17 @@
   <li>Genre-based movie rows displayed as carousels</li>
   <li>Watchlist grouped by genre and split into carousels</li>
   <li>Reusable React components</li>
+  <li>Dynamic hero banner displaying featured movies with rotating content</li>
+  <li>Movie posters displayed across all pages using external image URLs</li>
+  <li>Clickable UI elements (hero banner and movie cards) for navigation</li>
+  <li>Randomized "Recommended for You" section on the home page</li>
+  <li>Enhanced UI inspired by streaming platforms with responsive layouts</li>
 </ul>
+
+  <p>
+  With this application, I focused heavily on user experience, incorporating a dynamic
+  home page with a featured movie banner, responsive layouts, and movie cards with poster images.
+</p>
 
 <hr />
 
@@ -158,9 +182,10 @@ npm run dev
 <h2>User Stories</h2>
 
 <ul>
-  <li>As a user, I want to browse movies by genre so I can discover movies I may want to watch.</li>
+  <li>As a user, I want to browse movies by genre so I can find movies I want to watch.</li>
   <li>As a user, I want to add a movie to my watchlist so I can save it for later.</li>
   <li>As a user, I want to search movies and watchlist entries so I can quickly find what I am looking for.</li>
+  <li>As a user, I want to be able to remove a movie from the watchlist after watching it.</li>
 </ul>
 
 <hr />
@@ -176,8 +201,8 @@ npm run dev
 </ul>
 
 <p>
-  Wireframes should show layout structure, navigation, API data placement,
-  and user interaction points.
+  Wireframes show layout structure, navigation, API communication,
+  and how the user interacts with the application.
 </p>
 
 <hr />
@@ -214,9 +239,15 @@ npm run dev
   <li><strong>Backend:</strong> Deploy the <code>server</code> folder to Render</li>
 </ul>
 
-<p>When deployed, update the frontend environment variable to the live backend URL:</p>
+<p>
+When deployed, the frontend connects to the live backend using an environment variable:
+</p>
 
 <pre><code>VITE_API_BASE_URL=https://your-render-backend-url.onrender.com</code></pre>
+
+<p>
+This allows the application to dynamically switch between local and production environments.
+</p>
 
 <hr />
 
@@ -236,7 +267,7 @@ npm run dev
 <ul>
   <li>Add update/edit functionality</li>
   <li>Add authentication and user accounts</li>
-  <li>Replace json-server with a custom Express/PostgreSQL backend in Project 4</li>
+  <li>Replace json-server with a custom Express/PostgreSQL backend</li>
 </ul>
 
 

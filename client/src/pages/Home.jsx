@@ -56,15 +56,12 @@ function Home() {
 }, [movies]);
 
 
-  // 🎬 Featured movie (first one)
   const featuredMovie = movies[featuredIndex];
 
-  // 🔥 Trending (just first 6)
   const trendingMovies = movies.slice(0, 6);
 
   return (
     <main>
-      {/* 🎬 HERO BANNER */}
       {featuredMovie && (
           <section key={featuredMovie.id} className="hero">
           <div className="hero-content">

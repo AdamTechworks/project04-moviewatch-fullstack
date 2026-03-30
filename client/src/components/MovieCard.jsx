@@ -22,11 +22,8 @@ function MovieCard({ movie, onAddToWatchlist, onRemove, message }) {
                 cursor: "pointer"
               }}
             >
-              
-          <div className="movie-poster-overlay">
-            <span className="movie-poster-title">{movie.title}</span>
           </div>
-        </div>
+
 
         {message && <p className="success-message">{message}</p>}
 
