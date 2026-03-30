@@ -141,19 +141,6 @@
 
 <pre><code>VITE_API_BASE_URL=http://localhost:3000</code></pre>
 
-<p>This file should be placed inside:</p>
-
-<pre><code>client/.env</code></pre>
-
-<hr />
-
-<h2>How to Run the Project Locally</h2>
-
-<h3>1. Clone the repository</h3>
-
-<pre><code>git clone YOUR_REPOSITORY_URL
-cd project03
-</code></pre>
 
 <h3>2. Start the backend</h3>
 
