@@ -43,7 +43,12 @@ function Movies({ watchlist, setWatchlist }) {
         return;
       }
 
-      const newMovie = await addToWatchlist(movie);
+      const watchlistMovie = {
+        ...movie,
+        status: "Want to Watch",
+      };
+
+const newMovie = await addToWatchlist(watchlistMovie);
       setWatchlist((prev) => [...prev, newMovie]);
       setMessage(`${movie.title} added to watchlist`); 
 

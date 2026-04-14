@@ -43,3 +43,19 @@ export async function deleteFromWatchlist(id) {
 
   return true;
 }
+
+export async function updateWatchlistItem(id, updates) {
+  const response = await fetch(`${API_URL}/watchlist/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updates)
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to update watchlist item");
+  }
+
+  return response.json();
+}

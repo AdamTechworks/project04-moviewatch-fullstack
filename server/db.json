@@ -361,6 +361,19 @@
       "poster": "https://image.tmdb.org/t/p/w500/lw4n5CBlLR62nogy46FyJaIFziH.jpg"
     }
   ],
-  "watchlist": [],
+  "watchlist": [
+    {
+      "id": "3",
+      "title": "Dune",
+      "genre": "Sci-Fi",
+      "director": "Denis Villeneuve",
+      "year": 2021,
+      "review": "A visually stunning adaptation of a desert planet epic. Paul Atreides must navigate politics, prophecy, and survival. The film delivers massive scale and immersive world-building.",
+      "rating": 8,
+      "poster": "https://image.tmdb.org/t/p/w500/gDzOcq0pfeCeqMBwKIJlSmQpjkZ.jpg",
+      "status": "Want to Watch",
+      "personalRating": 10
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

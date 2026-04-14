@@ -2,7 +2,18 @@ import { useRef } from "react";
 import MovieCard from "./MovieCard";
 
 
-function MovieList({ movies, onAddToWatchlist, onRemove,  message, selectedMovieId }) {
+function MovieList({ 
+   movies,
+   onAddToWatchlist, 
+   onRemove,
+   onEdit,
+   onSaveEdit,
+   onCancelEdit,
+   editingMovieId,
+   editForm,
+   onEditChange,
+   message,
+   selectedMovieId }) {
   const ref = useRef(null);
 
   return (
@@ -18,6 +29,12 @@ function MovieList({ movies, onAddToWatchlist, onRemove,  message, selectedMovie
           movie={movie}
           onAddToWatchlist={onAddToWatchlist}
           onRemove={onRemove}
+          onEdit={onEdit}
+          onSaveEdit={onSaveEdit}
+          onCancelEdit={onCancelEdit}
+          editingMovieId={editingMovieId}
+          editForm={editForm}
+          onEditChange={onEditChange}
           message={selectedMovieId === movie.id ? message : ""}
         />
       ))}

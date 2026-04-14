@@ -15,3 +15,46 @@
 .card:hover .movie-poster {
   transform: scale(1.05);
 }
+
+.edit-form {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #1f2937;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.edit-form label {
+  font-size: 0.9rem;
+  text-align: left;
+  color: #d1d5db;
+}
+
+.edit-form select,
+.edit-form input {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #374151;
+  background-color: #111827;
+  color: white;
+}
+
+.edit-form button {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-form button:first-of-type {
+  background-color: #104bb9; 
+  color: white;
+}
+
+.edit-form button:last-of-type {
+  background-color: #facc15; 
+  color: white;
+}
