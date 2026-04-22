@@ -1,7 +1,7 @@
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function getMovies() {
-  const response = await fetch(`${API_URL}/movies`);
+  const response = await fetch(`${API_URL}/api/movies`);
   if (!response.ok) {
     throw new Error("Failed to fetch movies");
   }
@@ -9,7 +9,7 @@ export async function getMovies() {
 }
 
 export async function getWatchlist() {
-  const response = await fetch(`${API_URL}/watchlist`);
+  const response = await fetch(`${API_URL}/api/watchlist`);
   if (!response.ok) {
     throw new Error("Failed to fetch watchlist");
   }
@@ -17,7 +17,7 @@ export async function getWatchlist() {
 }
 
 export async function addToWatchlist(movie) {
-  const response = await fetch(`${API_URL}/watchlist`, {
+  const response = await fetch(`${API_URL}/api/watchlist`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export async function addToWatchlist(movie) {
 }
 
 export async function deleteFromWatchlist(id) {
-  const response = await fetch(`${API_URL}/watchlist/${id}`, {
+  const response = await fetch(`${API_URL}/api/watchlist/${id}`, {
     method: "DELETE"
   });
 
@@ -45,7 +45,7 @@ export async function deleteFromWatchlist(id) {
 }
 
 export async function updateWatchlistItem(id, updates) {
-  const response = await fetch(`${API_URL}/watchlist/${id}`, {
+  const response = await fetch(`${API_URL}/api/watchlist/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
