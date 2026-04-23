@@ -1,40 +1,36 @@
-<h2>React Application</h2>
+<h2>WatchVerse App</h2>
 
 <p>Built by Adam Ellison.</p>
 
 <p>
-  I wanted to create something that felt familiar and intuitive, where users can browse movies by genre and build a personal
-  watchlist. A big focus was improving the user experience with features like horizontal
-  carousels, search with autocomplete, and instant UI updates when adding or removing movies.
+  WatchVerse is a full-stack movie browsing application that allows users to explore
+  movies by genre and manage a personal watchlist. This project builds on my previous
+  React application by replacing the mock backend with a real Express API and a
+  PostgreSQL database hosted on Neon.
 </p>
 
 <hr />
 
-<h1>WatchVerse App</h1>
-
-<p>
-  This React application that allows the project to use a seperate
-  <strong>json-server</strong> backend and follows a client/server folder structure.
-</p>
-
-<hr />
 
 <h2>Project Overview</h2>
 
 <p>
-  This project demonstrates how a React frontend connects to an API using
-  <code>fetch()</code>. The frontend was built with React and Vite, while the backend
-  was created with <code>json-server</code>.
+  This project demonstrates a full-stack CRUD application using a 3-tier architecture:
 </p>
+
+<ul>
+  <li><strong>Presentation Layer:</strong> React frontend</li>
+  <li><strong>Application Layer:</strong> Express backend with API routes and business logic</li>
+  <li><strong>Data Layer:</strong> PostgreSQL database hosted on Neon</li>
+</ul>
 
 <p>Users can:</p>
 
 <ul>
-  <li>Browse movies by genre in carousel rows</li>
+  <li>Browse movies by genre</li>
   <li>Search movies with autocomplete suggestions</li>
   <li>Add movies to a watchlist</li>
-  <li>Prevent duplicate watchlist entries</li>
-  <li>View and search their watchlist</li>
+  <li>Update watchlist items with status and personal rating</li>
   <li>Remove movies from the watchlist</li>
 </ul>
 
@@ -44,8 +40,12 @@
 
 <ul>
   <li><strong>Frontend:</strong> React, Vite, React Router</li>
-  <li><strong>Backend:</strong> json-server</li>
+  <li><strong>Backend:</strong> Node.js, Express</li>
+  <li><strong>Database:</strong> PostgreSQL (Neon)</li>
+  <li><strong>Database Client:</strong> pg</li>
   <li><strong>Styling:</strong> CSS</li>
+  <li><strong>API Testing:</strong> Postman</li>
+  <li><strong>Database Tool:</strong> Beekeeper Studio</li>
   <li><strong>Version Control:</strong> Git and GitHub</li>
   <li><strong>Deployment:</strong> Vercel (frontend), Render (backend)</li>
 </ul>
@@ -63,10 +63,16 @@
     .env
     package.json
     vite.config.js
-  server/
-    db.json
+   server/
+    src/
+      controllers/
+      db/
+      routes/
+      services/
+      app.js
+      server.js
+    .env
     package.json
-    server.js
 /.gitingore
 </code></pre>
 
@@ -90,27 +96,19 @@
 <h2>Features</h2>
 
 <ul>
-  <li>React Router with 3 main pages</li>
-  <li>GET requests to load movies and watchlist data</li>
-  <li>POST requests to add movies to the watchlist</li>
-  <li>DELETE requests to remove movies from the watchlist</li>
-  <li>Shared watchlist state managed in <code>App.jsx</code></li>
-  <li>Local component state for search, loading, and UI feedback</li>
-  <li>Autocomplete search suggestions</li>
-  <li>Genre-based movie rows displayed as carousels</li>
-  <li>Watchlist grouped by genre and split into carousels</li>
+  <li>React Router with multiple pages</li>
+  <li>Genre-based movie browsing with carousel layouts</li>
+  <li>Search with autocomplete suggestions</li>
+  <li>Add movies to watchlist</li>
+  <li>Update watchlist items with status and personal rating</li>
+  <li>Delete movies from watchlist</li>
+  <li>Prevent duplicate watchlist entries</li>
   <li>Reusable React components</li>
-  <li>Dynamic hero banner displaying featured movies with rotating content</li>
-  <li>Movie posters displayed across all pages using external image URLs</li>
-  <li>Clickable UI elements (hero banner and movie cards) for navigation</li>
-  <li>Randomized "Recommended for You" section on the home page</li>
-  <li>Enhanced UI inspired by streaming platforms with responsive layouts</li>
+  <li>Dynamic home page with featured banner and recommendations</li>
+  <li>Movie posters displayed throughout the app</li>
+  <li>Responsive UI inspired by streaming platforms</li>
 </ul>
 
-  <p>
-  With this application, I focused heavily on user experience, incorporating a dynamic
-  home page with a featured movie banner, responsive layouts, and movie cards with poster images.
-</p>
 
 <hr />
 
@@ -130,19 +128,44 @@
   <li><code>GET /movies</code> — Retrieve all movies</li>
   <li><code>GET /watchlist</code> — Retrieve watchlist movies</li>
   <li><code>POST /watchlist</code> — Add a movie to the watchlist</li>
+  <li><code>PATCH /api/watchlist/:id</code> — Update a watchlist item</li>
   <li><code>DELETE /watchlist/:id</code> — Remove a movie from the watchlist</li>
 </ul>
 
 <hr />
 
+<h2>Database Setup</h2>
+
+<p>
+  This project uses a PostgreSQL database hosted on Neon. The database includes:
+</p>
+
+<ul>
+  <li><code>movies</code> table for the movie catalog</li>
+  <li><code>watchlist</code> table for user-managed watchlist data</li>
+</ul>
+
+<p>
+  Movie data was seeded into the database using the original project dataset, and all
+  CRUD actions now interact with PostgreSQL instead of <code>db.json</code>.
+</p>
+
+<hr />
+
 <h2>Environment Variables</h2>
 
-<p>The frontend uses an environment variable for the API base URL.</p>
+<p>The frontend uses an environment variable for the backend API base URL:</p>
 
 <pre><code>VITE_API_BASE_URL=http://localhost:3000</code></pre>
+<p>The backend uses an environment variable for the PostgreSQL connection:</p>
 
+<pre><code>DATABASE_URL=your_neon_database_url</code></pre>
 
-<h3>2. Start the backend</h3>
+<hr />
+
+<h2>Running Locally</h2>
+
+<h3>1. Start the backend</h3>
 
 <pre><code>cd server
 npm install
@@ -153,7 +176,7 @@ npm start
 
 <pre><code>http://localhost:3000</code></pre>
 
-<h3>3. Start the frontend</h3>
+<h3>2. Start the frontend</h3>
 
 <pre><code>cd client
 npm install
@@ -169,30 +192,15 @@ npm run dev
 <h2>User Stories</h2>
 
 <ul>
-  <li>As a user, I want to browse movies by genre so I can find movies I want to watch.</li>
-  <li>As a user, I want to add a movie to my watchlist so I can save it for later.</li>
-  <li>As a user, I want to search movies and watchlist entries so I can quickly find what I am looking for.</li>
-  <li>As a user, I want to be able to remove a movie from the watchlist after watching it.</li>
+  <li>As a user, I want to browse movies by genre so I can find something to watch.</li>
+  <li>As a user, I want to search movies quickly with autocomplete suggestions.</li>
+  <li>As a user, I want to add movies to a watchlist so I can save them for later.</li>
+  <li>As a user, I want to update a watchlist item with my own status and rating.</li>
+  <li>As a user, I want to remove a movie from my watchlist when I no longer need it.</li>
 </ul>
 
 <hr />
 
-<h2>Wireframes</h2>
-
-<p>This project includes wireframes for the following pages:</p>
-
-<ul>
-  <li>Home page</li>
-  <li>Movies page</li>
-  <li>Watchlist page</li>
-</ul>
-
-<p>
-  Wireframes show layout structure, navigation, API communication,
-  and how the user interacts with the application.
-</p>
-
-<hr />
 
 <h2>Reusable Components</h2>
 
@@ -210,41 +218,45 @@ npm run dev
 
 <h2>State Management</h2>
 
-<p>This project uses both local state and shared state:</p>
+
+<p>This project uses both shared and local state:</p>
 
 <ul>
-  <li><strong>Shared state:</strong> watchlist data managed in <code>App.jsx</code></li>
-  <li><strong>Local state:</strong> loading, search terms, selected movie UI messages, and page-specific behavior</li>
+  <li><strong>Shared state:</strong> watchlist data managed across the app</li>
+  <li><strong>Local state:</strong> loading, search terms, editing state, success/error messages, and page-specific UI behavior</li>
 </ul>
 
 <hr />
 
-<h2>Deployment Plan</h2>
+<h2>Deployment</h2>
 
 <ul>
   <li><strong>Frontend:</strong> Deploy the <code>client</code> folder to Vercel</li>
   <li><strong>Backend:</strong> Deploy the <code>server</code> folder to Render</li>
+  <li><strong>Database:</strong> Hosted on Neon</li>
 </ul>
 
 <p>
-When deployed, the frontend connects to the live backend using an environment variable:
+  When deployed, the frontend connects to the live backend using an environment variable:
 </p>
 
 <pre><code>VITE_API_BASE_URL=https://your-render-backend-url.onrender.com</code></pre>
 
 <p>
-This allows the application to dynamically switch between local and production environments.
+  This allows the application to switch between local development and production.
 </p>
 
 <hr />
 
+
 <h2>Challenges</h2>
 
 <ul>
-  <li>Handling case-sensitive file paths across different environments</li>
-  <li>Refactoring the app to use shared global state without breaking existing functionality</li>
-  <li>Organizing movie data into genre-based carousels</li>
-  <li>Keeping the UI responsive and intuitive while managing multiple features</li>
+ <li>Migrating from a json-server backend to a real Express/PostgreSQL architecture</li>
+  <li>Designing and testing full CRUD routes with PostgreSQL</li>
+  <li>Connecting the frontend to the new backend without breaking existing UI functionality</li>
+  <li>Handling differences between frontend and backend field naming</li>
+  <li>Managing environment variables for local development and deployment</li>
 </ul>
 
 <hr/>
@@ -252,10 +264,10 @@ This allows the application to dynamically switch between local and production e
 <h2>Future Improvements</h2>
 
 <ul>
-  <li>Add update/edit functionality</li>
   <li>Add authentication and user accounts</li>
-  <li>Replace json-server with a custom Express/PostgreSQL backend</li>
+  <li>Create user-specific watchlists</li>
+  <li>Add stronger backend validation and error handling</li>
 </ul>
 
-
+<hr/>
 
