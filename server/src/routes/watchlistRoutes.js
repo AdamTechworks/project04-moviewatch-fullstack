@@ -19,9 +19,16 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
+    const { title, genre, director, year, review, rating, poster } = req.body;
+
+    if (!title || !genre || !director || !year || !review || !rating || !poster) {
+      return res.status(400).json({ message: "Missing required movie fields" });
+    }
+    
     const newItem = await addWatchlistItem(req.body);
     res.status(201).json(newItem);
   } catch (error) {
+    console.error("Failed to add watchlist item:", error);
     res.status(500).json({ message: "Failed to add watchlist item" });
   }
 });

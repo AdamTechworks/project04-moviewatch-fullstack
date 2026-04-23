@@ -1,5 +1,12 @@
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
+function normalizeWatchlistItem(item) {
+  return {
+    ...item,
+    personalRating: item.personal_rating ?? item.personalRating
+  };
+}
+
 export async function getMovies() {
   const response = await fetch(`${API_URL}/api/movies`);
   if (!response.ok) {
@@ -13,7 +20,8 @@ export async function getWatchlist() {
   if (!response.ok) {
     throw new Error("Failed to fetch watchlist");
   }
-  return response.json();
+  const data = await response.json();
+  return data.map(normalizeWatchlistItem);
 }
 
 export async function addToWatchlist(movie) {
@@ -29,7 +37,8 @@ export async function addToWatchlist(movie) {
     throw new Error("Failed to add movie to watchlist");
   }
 
-  return response.json();
+  const data = await response.json();
+ return normalizeWatchlistItem(data);
 }
 
 export async function deleteFromWatchlist(id) {
@@ -57,5 +66,6 @@ export async function updateWatchlistItem(id, updates) {
     throw new Error("Failed to update watchlist item");
   }
 
-  return response.json();
+  const data = await response.json();
+ return normalizeWatchlistItem(data);
 }
