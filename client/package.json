@@ -1,5 +1,5 @@
 {
-  "name": "project03-react",
+  "name": "watchverse-client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,11 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "json-server --watch db.json --port 3000"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "json-server": "^1.0.0-beta.13",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.1"
