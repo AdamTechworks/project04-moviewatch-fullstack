@@ -9,6 +9,13 @@
   PostgreSQL database hosted on Neon.
 </p>
 
+<h2>Live Links</h2>
+
+<ul>
+  <li><strong>Frontend:</strong> https://project04-moviewatch-fullstack-pzuubvg1z-adamtechworks-projects.vercel.app</li>
+  <li><strong>Backend:</strong> https://watchverse-api.onrender.com</li>
+</ul>
+
 <hr />
 
 
@@ -125,11 +132,11 @@
 <h2>API Endpoints</h2>
 
 <ul>
-  <li><code>GET /movies</code> — Retrieve all movies</li>
-  <li><code>GET /watchlist</code> — Retrieve watchlist movies</li>
-  <li><code>POST /watchlist</code> — Add a movie to the watchlist</li>
+  <li><code>GET /api/movies</code> — Retrieve all movies</li>
+  <li><code>GET /api/watchlist</code> — Retrieve watchlist movies</li>
+  <li><code>POST /api/watchlist</code> — Add a movie to the watchlist</li>
   <li><code>PATCH /api/watchlist/:id</code> — Update a watchlist item</li>
-  <li><code>DELETE /watchlist/:id</code> — Remove a movie from the watchlist</li>
+  <li><code>DELETE /api/watchlist/:id</code> — Remove a movie from the watchlist</li>
 </ul>
 
 <hr />
