@@ -12,7 +12,7 @@
 <h2>Live Links</h2>
 
 <ul>
-  <li><strong>Frontend:</strong> https://project04-moviewatch-fullstack-pzuubvg1z-adamtechworks-projects.vercel.app</li>
+  <li><strong>Frontend:</strong> https://project04-moviewatch-fullstack.vercel.app</li>
   <li><strong>Backend:</strong> https://watchverse-api.onrender.com</li>
 </ul>
 
