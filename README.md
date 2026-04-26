@@ -2,12 +2,15 @@
 
 <p>Built by Adam Ellison.</p>
 
+
 <p>
   WatchVerse is a full-stack movie browsing application that allows users to explore
   movies by genre and manage a personal watchlist. This project builds on my previous
   React application by replacing the mock backend with a real Express API and a
   PostgreSQL database hosted on Neon.
 </p>
+
+<p><strong>Status:</strong> Fully deployed and functional</p>
 
 <h2>Live Links</h2>
 
@@ -61,7 +64,7 @@
 
 <h2>Project Structure</h2>
 
-<pre><code>project03/
+<pre><code>project04/
   client/
     src/
       components/
@@ -80,7 +83,7 @@
       server.js
     .env
     package.json
-/.gitingore
+/.gitignore
 </code></pre>
 
 <hr />
